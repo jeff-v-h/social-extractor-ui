@@ -1,0 +1,58 @@
+@import "../../shared/styles/variables";
+
+.login-box {
+  border: $black-border;
+  border-radius: 5px;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  font-size: 1.1em;
+
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      margin-right: 10px;
+    }
+
+    input {
+      font-size: 1em;
+      min-width: 250px;
+    }
+  }
+
+  .login-bottom {
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      min-width: 10px;
+      margin: 0;
+      font-size: 0.8em;
+    }
+
+    button {
+      background-color: $colour-main;
+      border-radius: 5px;
+      border-color: $colour-main;
+      cursor: pointer;
+      color: white;
+      height: 30px;
+      width: 70px;
+
+      &:hover {
+        background-color: $colour-main-light;
+        border-color: $colour-main-light;
+      }
+
+      &:disabled {
+        background-color: grey;
+        border-color: grey;
+      }
+    }
+  }
+}
+
+.error-txt {
+  align-self: center;
+}
