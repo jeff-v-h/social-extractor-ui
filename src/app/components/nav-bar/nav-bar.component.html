@@ -1,6 +1,6 @@
 <div class="toolbar" role="banner">
   <div>
-    <img height="40" alt="Deltatre Logo" src="../assets/images/deltatre_logo_red.png" />
+    <img height="40" alt="Logo" src="../assets/images/Social-Media-Ideas.png" />
   </div>
 
   <div class="title">
@@ -9,10 +9,16 @@
   <div id="toolbar-user">
     <div>
       <div class="toolbar-btns">
-        <button *ngIf="isAdmin" (click)="goAdmin()" class="admin-btn">Admin</button>
-        <button *ngIf="isLoggedIn; else loginButton" (click)="logout()">Logout</button>
+        <button *ngIf="isAdmin" (click)="goAdmin()" class="admin-btn">
+          Admin
+        </button>
+        <button *ngIf="isLoggedIn; else loginButton" (click)="logout()">
+          Logout
+        </button>
       </div>
-      <span class="toolbar-users-name" routerLink="/settings">{{usersName}}</span>
+      <span class="toolbar-users-name" routerLink="/settings">{{
+        usersName
+      }}</span>
     </div>
   </div>
 </div>
