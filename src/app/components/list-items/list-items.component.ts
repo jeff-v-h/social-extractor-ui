@@ -124,7 +124,9 @@ export class ListItemsComponent implements OnInit {
           mainContent: "",
           secondaryContent: "",
           attachments: [],
-          timeAdded: `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`,
+          timeAdded: `${now.getFullYear()}-${this.getMonth(
+            now
+          )}-${now.getDate()}`,
           addedBy: ""
         });
       }
@@ -149,5 +151,10 @@ export class ListItemsComponent implements OnInit {
           this.messageService.showQuickSuccess("Saved & Published", "Okay");
         this.disableButtons = false;
       });
+  }
+
+  getMonth(now: Date): string {
+    const monthDate = now.getMonth() + 1;
+    return monthDate < 10 ? "0" + monthDate.toString() : monthDate.toString();
   }
 }
