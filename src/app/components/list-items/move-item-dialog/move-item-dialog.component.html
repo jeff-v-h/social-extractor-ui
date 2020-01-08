@@ -1,0 +1,16 @@
+<div class="dialog">
+  <h1 mat-dialog-title>Move Item</h1>
+  <div mat-dialog-content class="dialog-content">
+    <ul>
+      <li *ngFor="let mediaList of mediaLists" class="media-list">
+        <label><input type="checkbox" [name]="mediaList.name" [value]="mediaList.id"
+            (change)="checkItem($event)">{{mediaList.name}}</label>
+      </li>
+    </ul>
+  </div>
+  <div mat-dialog-actions class="dialog-btns">
+    <button mat-button (click)="closeDialog()" class="cancel-btn">Cancel</button>
+    <button mat-button (click)="copy()" cdkFocusInitial class="main-btn">Copy</button>
+    <button mat-button (click)="move()" cdkFocusInitial class="main-btn">Move</button>
+  </div>
+</div>

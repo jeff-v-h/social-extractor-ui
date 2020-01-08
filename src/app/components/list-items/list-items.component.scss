@@ -1,0 +1,129 @@
+@import "../../shared/styles/variables";
+@import "../../shared/styles/extensions";
+
+.list-items {
+  .back-btn mat-icon:hover {
+    background-color: lightgrey;
+  }
+
+  table {
+    table-layout: auto;
+    border-collapse: collapse;
+    width: 100%;
+
+    th {
+      padding: 5px 10px;
+      text-align: left;
+      border: $black-border;
+    }
+
+    td {
+      border: $black-border;
+      height: 50px;
+
+      &.platform {
+        width: 50px;
+        text-align: center;
+      }
+
+      &.td-short {
+        width: 150px;
+      }
+
+      img {
+        width: 70%;
+      }
+
+      input {
+        border: 0;
+        height: 100%;
+        width: 80%;
+        min-width: 80px;
+        font-size: 1em;
+        margin: 0;
+        padding: 0 10px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      textarea {
+        border: 0;
+        height: 80%;
+        min-height: 70px;
+        font-size: 1em;
+        margin: 0;
+        padding: 10px;
+        font-family: inherit;
+        resize: none;
+
+        &.short-input {
+          width: 85%;
+        }
+
+        &.main-content {
+          width: 92%;
+        }
+
+        &.secondary-content {
+          width: 92%;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .item-options {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+      }
+
+      .modify-btn:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+.reorder {
+  display: flex;
+  justify-content: center;
+}
+
+.cdk-drag-preview {
+  @extend %cdk-drag-preview;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  img {
+    width: 40px;
+    margin-right: 10px;
+  }
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 150ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 150ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.drag-handle {
+  cursor: move;
+}

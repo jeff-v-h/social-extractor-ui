@@ -1,0 +1,102 @@
+<div class="list-items">
+  <a class="back-btn" routerLink="/social-media-lists">
+    <mat-icon aria-hidden="false" aria-label="Back to Main">arrow_back</mat-icon>
+  </a>
+  <div class="center-container">
+    <h2>{{listData?.name}}</h2>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          <div class="reorder">
+            <mat-icon aria-hidden="false" aria-label="Reorder">reorder</mat-icon>
+          </div>
+        </th>
+        <th>Media Platform</th>
+        <th>Display Name</th>
+        <th>User Handle</th>
+        <th>Main Content</th>
+        <th>Secondary Content</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="listData else emptyTable" cdkDropList (cdkDropListDropped)="drop($event)">
+      <tr *ngFor="let mediaPost of listData.mediaPosts; let i = index" cdkDrag>
+        <td class="drag-handle" cdkDragHandle>
+          <div class="center-container">
+            <mat-icon aria-hidden="false" aria-label="Drag Handle">drag_handle</mat-icon>
+          </div>
+          <div *cdkDragPreview>
+            <img [src]="mediaPost.mediaPlatform | getMediaLogo" />
+            <div>
+              <span class="bold">{{mediaPost.displayName}} ({{mediaPost.mediaHandle}})</span> -
+              {{mediaPost.mainContent}}
+            </div>
+          </div>
+        </td>
+        <td class="platform">
+          <img [src]="mediaPost.mediaPlatform | getMediaLogo" />
+        </td>
+        <td class="td-short">
+          <textarea (focusout)="saveInput(i, 'displayName', $event)" (keyup.enter)="blurInput($event)"
+            class="short-input">{{mediaPost.displayName}}</textarea>
+        </td>
+        <td class="td-short">
+          <textarea (focusout)="saveInput(i, 'mediaHandle', $event)" (keyup.enter)="blurInput($event)"
+            class="short-input">{{mediaPost.mediaHandle}}</textarea>
+        </td>
+        <td>
+          <textarea (focusout)="saveInput(i, 'mainContent', $event)" (keyup.enter)="blurInput($event)"
+            class="main-content">{{mediaPost.mainContent}}</textarea>
+        </td>
+        <td>
+          <textarea (focusout)="saveInput(i, 'secondaryContent', $event)" (keyup.enter)="blurInput($event)"
+            class="secondary-content">{{mediaPost.secondaryContent}}</textarea>
+        </td>
+        <td>
+          <div class="item-options">
+            <div class="center-container pointer modify-btn" (click)="openMoveTo(mediaPost.postId)">
+              <mat-icon aria-hidden="false" aria-label="Move to">arrow_right_alt</mat-icon>
+            </div>
+            <div class="center-container pointer modify-btn" (click)="delete(mediaPost.postId)">
+              <mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!disableButtons; else disabledButtons" class="bottom-page-buttons">
+    <button (click)="openAddPostDialog()">Add Post</button>
+    <button (click)="getList()">Discard Changes</button>
+    <button (click)="save()">Save</button>
+    <button (click)="publish()">Save & Publish</button>
+  </div>
+
+</div>
+
+<!-- Templates -->
+<ng-template #emptyTable>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</ng-template>
+
+<ng-template #disabledButtons>
+  <div class="bottom-page-buttons">
+    <button disabled>Add Post</button>
+    <button disabled>Discard Changes</button>
+    <button disabled>Save</button>
+    <button disabled>Save & Publish</button>
+  </div>
+</ng-template>
