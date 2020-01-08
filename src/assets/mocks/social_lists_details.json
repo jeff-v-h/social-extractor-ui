@@ -1,0 +1,21 @@
+{
+  "id": "5dd6ab43ed393b10fc4938fc",
+  "created": "2019-11-21T17:11:56.181Z",
+  "lists": [
+    {
+      "id": "5dd69c3c17fce357dc82444e",
+      "created": "0001-01-01T00:00:00Z",
+      "name": "Recently Added"
+    },
+    {
+      "id": "5dd69c9344750a67188ea1c2",
+      "created": "0001-01-01T00:00:00Z",
+      "name": "Week 10"
+    },
+    {
+      "id": "5dd69ca244750a67188ea1c3",
+      "created": "0001-01-01T00:00:00Z",
+      "name": "Champions League"
+    }
+  ]
+}
