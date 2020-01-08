@@ -1,0 +1,30 @@
+<div class="admin-page">
+  <div class="center-container">
+    <h2>Users</h2>
+  </div>
+  <ul class="users-list">
+    <li *ngFor="let user of users">
+      <div class="item" (click)="openDialog('update', user.username)">
+        <div class="users-names">
+          <h3>{{user.firstName}} {{user.lastName}}</h3>
+          <h4>{{user.username}}</h4>
+        </div>
+      </div>
+      <div class="item-options">
+        <div class="center-container modify-btn" (click)="openDialog('delete', user.username)">
+          <mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div *ngIf="!disableButtons; else disabledButtons" class="bottom-page-buttons">
+    <button (click)="openDialog('create')">Add New User</button>
+  </div>
+</div>
+
+<ng-template #disabledButtons>
+  <div class="bottom-page-buttons">
+    <button disabled>Add New User</button>
+  </div>
+</ng-template>

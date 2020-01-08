@@ -1,0 +1,66 @@
+@import "../../../../app/shared/styles/variables";
+
+.toolbar {
+  height: 70px;
+  margin: -8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $colour-main;
+  color: white;
+  font-weight: 600;
+
+  > div {
+    flex: 1;
+  }
+
+  h1 {
+    cursor: pointer;
+  }
+}
+
+.toolbar img {
+  margin: 0 16px;
+}
+
+#toolbar-user {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  > div {
+    margin: 0 16px;
+  }
+
+  .toolbar-btns {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 5px;
+
+    .admin-btn {
+      margin-right: 10px;
+    }
+  }
+
+  button {
+    background-color: $colour-secondary;
+    border-radius: 20px;
+    border-color: $colour-secondary;
+    cursor: pointer;
+    color: white;
+
+    &:hover {
+      background-color: $colour-secondary-light;
+    }
+  }
+
+  span {
+    display: block;
+
+    &.toolbar-users-name {
+      float: right;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+%center-container {
+  display: flex;
+  justify-content: center;
+}
+
+%cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  padding: 10px;
+  max-width: $content-width;
+  min-width: 90vw;
+}
+
+%button {
+  cursor: pointer;
+  border: none;
+  margin: 10px;
+}
+
+%main-button {
+  @extend %button;
+  background-color: $colour-main;
+  color: white;
+
+  &:hover {
+    background-color: $colour-main-light;
+  }
+}
+
+%cancel-button {
+  @extend %button;
+  background-color: rgb(160, 160, 160);
+  color: white;
+
+  &:hover {
+    background-color: rgb(133, 133, 133);
+  }
+}
