@@ -1,0 +1,22 @@
+<div class="toolbar" role="banner">
+  <div>
+    <img height="40" alt="Deltatre Logo" src="../assets/images/deltatre_logo_red.png" />
+  </div>
+
+  <div class="title">
+    <h1 routerLink="/">Social Media Tool</h1>
+  </div>
+  <div id="toolbar-user">
+    <div>
+      <div class="toolbar-btns">
+        <button *ngIf="isAdmin" (click)="goAdmin()" class="admin-btn">Admin</button>
+        <button *ngIf="isLoggedIn; else loginButton" (click)="logout()">Logout</button>
+      </div>
+      <span class="toolbar-users-name" routerLink="/settings">{{usersName}}</span>
+    </div>
+  </div>
+</div>
+
+<ng-template #loginButton>
+  <button routerLink="/login">Login</button>
+</ng-template>
