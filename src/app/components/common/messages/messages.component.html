@@ -1,0 +1,12 @@
+<div *ngIf="messageService.messages.length else emptyMessage" class="messages">
+  <div *ngFor='let message of messageService.messages' class="error-msg">
+    <p>{{message}}</p>
+    <a (click)="messageService.clear()">
+      <mat-icon aria-hidden="false" aria-label="Close">close</mat-icon>
+    </a>
+  </div>
+</div>
+
+<ng-template #emptyMessage>
+  <div class="messages"></div>
+</ng-template>
