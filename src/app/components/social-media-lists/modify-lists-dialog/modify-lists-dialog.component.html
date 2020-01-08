@@ -1,0 +1,18 @@
+<div class="dialog">
+  <h1 mat-dialog-title>{{modifyType}} List</h1>
+  <div mat-dialog-content>
+    <mat-form-field *ngIf="modifyType != 'Delete'; else deleteBlock">
+      <input matInput [(ngModel)]="data.name" placeholder="List Name" [value]="data.name">
+    </mat-form-field>
+    <ng-template #deleteBlock>
+      <p class="text-center">Are you sure you want to delete <span class="bold">{{currentListName}}</span>?</p>
+      <p class="text-center">It won't be recoverable!!</p>
+    </ng-template>
+  </div>
+  <p *ngIf="errorMsg" class="error-txt">{{errorMsg}}</p>
+  <div mat-dialog-actions class="dialog-btns">
+    <button mat-button (click)="closeDialog()" class="cancel-btn">Cancel</button>
+    <button mat-button (click)="closeAndModifyList(data.type, data.id, data.name)" cdkFocusInitial
+      class="main-btn">Ok</button>
+  </div>
+</div>

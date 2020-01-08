@@ -1,5 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { DragDropModule } from "@angular/cdk/drag-drop";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -11,15 +13,38 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { LocationStrategy, PathLocationStrategy } from "@angular/common";
 import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { ModifyListsDialogComponent } from "./components/social-media-lists/modify-lists-dialog/modify-lists-dialog.component";
+import { SocialMediaListsComponent } from "./components/social-media-lists/social-media-lists.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule
+} from "@angular/material";
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent],
+  declarations: [
+    AppComponent,
+    NavBarComponent,
+    SocialMediaListsComponent,
+    ModifyListsDialogComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    DragDropModule,
+    FormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule
   ],
+  entryComponents: [ModifyListsDialogComponent],
   providers: [
     HttpErrorHandler,
     MessageService,

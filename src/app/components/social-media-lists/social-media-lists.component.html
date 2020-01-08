@@ -1,0 +1,41 @@
+<div class="social-media-lists">
+  <div class="media-list recent-container" routerLink="/social-media-lists/5dd69c3c17fce357dc82444e">
+    <a class="item recent-add">
+      <h3>Recently Added</h3>
+    </a>
+  </div>
+  <ul class="media-list" cdkDropList (cdkDropListDropped)="reorderLists($event)">
+    <li *ngFor="let socialList of mediaLists" cdkDrag>
+      <div class="item-options" cdkDragHandle>
+        <mat-icon aria-hidden="false" aria-label="Drag Handle">drag_handle</mat-icon>
+        <div *cdkDragPreview>
+          <span class="bold">{{socialList.name}}</span>
+        </div>
+      </div>
+      <a class="item" routerLink="/social-media-lists/{{socialList.id}}">
+        <h3>{{socialList.name}}</h3>
+      </a>
+      <div class="item-options">
+        <div class="center-container modify-btn" (click)="openDialog('edit', socialList.id, socialList.name)">
+          <mat-icon aria-hidden="false" aria-label="Edit">edit</mat-icon>
+        </div>
+        <div class="center-container modify-btn" (click)="openDialog('delete', socialList.id, socialList.name)">
+          <mat-icon aria-hidden="false" aria-label="Delete">delete</mat-icon>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div *ngIf="!disableButtons; else disabledButtons" class="bottom-page-buttons">
+    <button (click)="openDialog('new')">New Social Media List</button>
+    <button (click)="publishAll()">Publish All</button>
+  </div>
+
+</div>
+
+<ng-template #disabledButtons>
+  <div class="bottom-page-buttons">
+    <button disabled>New Social Media List</button>
+    <button disabled>Publish All</button>
+  </div>
+</ng-template>
