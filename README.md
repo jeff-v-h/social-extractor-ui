@@ -1,10 +1,23 @@
-# SocialExtractorUi
+# Social Extractor UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+The user interface for managing data obtained from social media websites. The site uses authorisation and authentication alongside the Social Extractor Dataservice for accessing most of the content.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Requirements
+
+- Angular 8
+- [Social Extractor API](https://github.com/jeffvhuang/social-extractor-api)
+
+### Development server
+
+1. Clone the repository `git clone https://github.com/jeffvhuang/social-extractor-ui`
+2. In the cloned repo, install dependencies `npm install`
+3. Run `ng serve -o` for a dev server. If a webpage is not automatically opened, open a browser and navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+### App Usage
+
+Please refer to README for the [Social Extractor API](https://github.com/jeffvhuang/social-extractor-api) for default credentials for logging in as admin.
 
 ## Code scaffolding
 
@@ -14,14 +27,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Production
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+This project is not currently deployed.
 
-## Running end-to-end tests
+## Author/s
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Jeffrey Huang (jeffvh@outlook.com)
