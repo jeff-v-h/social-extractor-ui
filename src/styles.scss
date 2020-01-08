@@ -1,1 +1,129 @@
+@import "./app/shared/styles/variables";
+@import "./app/shared/styles/extensions";
+
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.app-component {
+  width: 100%;
+}
+
+.center-container {
+  @extend %center-container;
+}
+
+.bottom-page-buttons {
+  @extend %center-container;
+
+  button {
+    @extend %main-button;
+    height: 50px;
+    width: 100px;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+
+  .dialog-content {
+    max-height: 100%;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    .media-list label {
+      width: 100%;
+      cursor: pointer;
+    }
+
+    input {
+      cursor: pointer;
+    }
+
+    li {
+      margin: 10px 0;
+    }
+  }
+
+  .dialog-btns {
+    display: flex;
+    justify-content: space-between;
+
+    .main-btn {
+      @extend %main-button;
+      height: 40px;
+      width: 70px;
+    }
+
+    .cancel-btn {
+      @extend %cancel-button;
+      height: 40px;
+      width: 70px;
+    }
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.error-txt {
+  color: red;
+}
+
+button:disabled {
+  background-color: grey;
+
+  &:hover {
+    background-color: grey;
+  }
+}
+
+.snack-success {
+  background-color: $colour-main;
+  color: white;
+
+  .mat-button-wrapper {
+    color: $colour-secondary;
+  }
+}
+
+.snack-error {
+  background-color: red;
+  color: white;
+
+  .mat-button-wrapper {
+    color: white;
+  }
+}
+
+.dialog-inputs {
+  display: flex !important;
+  flex-direction: column;
+  min-width: 250px;
+}
