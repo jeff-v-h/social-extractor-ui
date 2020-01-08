@@ -20,15 +20,22 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
-  MatSelectModule
+  MatSelectModule,
+  MatIconModule
 } from "@angular/material";
+import { LoginComponent } from "./components/login/login.component";
+import { ModifyUserDialogComponent } from "./components/admin/modify-user-dialog/modify-user-dialog.component";
+import { AdminComponent } from "./components/admin/admin.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     SocialMediaListsComponent,
-    ModifyListsDialogComponent
+    ModifyListsDialogComponent,
+    LoginComponent,
+    AdminComponent,
+    ModifyUserDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,9 +49,10 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
-  entryComponents: [ModifyListsDialogComponent],
+  entryComponents: [ModifyListsDialogComponent, ModifyUserDialogComponent],
   providers: [
     HttpErrorHandler,
     MessageService,

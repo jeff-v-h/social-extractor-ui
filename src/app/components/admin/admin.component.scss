@@ -1,0 +1,88 @@
+@import "../../shared/styles/variables";
+
+$item-height: 70px;
+$options-width: 30px;
+$horizontal-padding: 20px;
+
+.admin-page {
+  width: 100%;
+
+  .users-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    border: $black-border;
+
+    li {
+      display: flex;
+      width: 100%;
+      height: $item-height;
+      border-bottom: $black-border;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .item {
+      flex: 1;
+      display: flex;
+      justify-content: flex-start;
+      min-height: $item-height;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(192, 192, 192);
+      }
+
+      .users-names {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h3,
+        h4 {
+          padding: 0 $horizontal-padding;
+          margin: 0;
+        }
+
+        h4 {
+          margin-top: 5px;
+          font-weight: normal;
+        }
+      }
+    }
+
+    .item-options {
+      width: $options-width;
+      display: flex;
+      align-items: center;
+      padding: 0 $horizontal-padding;
+      justify-content: center;
+
+      &:first-child {
+        border-right: $black-border;
+        cursor: move;
+
+        &:hover {
+          background-color: rgb(192, 192, 192);
+        }
+      }
+
+      &:last-child {
+        border-left: $black-border;
+        cursor: pointer;
+      }
+    }
+
+    .modify-btn {
+      margin: 5px;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}

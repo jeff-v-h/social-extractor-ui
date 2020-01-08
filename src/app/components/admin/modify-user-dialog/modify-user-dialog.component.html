@@ -1,0 +1,36 @@
+<div class="dialog">
+  <h1 mat-dialog-title>{{modifyType}} User</h1>
+  <div mat-dialog-content [formGroup]="form" class="dialog-inputs">
+    <ng-container *ngIf="data.type != 'delete'; else deleteBlock">
+      <mat-form-field>
+        <input matInput placeholder="First Name" formControlName="firstName" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Last Name" formControlName="lastName" required>
+      </mat-form-field>
+      <mat-form-field *ngIf="data.type == 'create'; else disabledUsername">
+        <input matInput placeholder="Username" formControlName="username" required minlength="6">
+      </mat-form-field>
+      <mat-form-field *ngIf="data.type == 'create'">
+        <input matInput type="password" placeholder="Password" formControlName="password" required minlength="8">
+      </mat-form-field>
+    </ng-container>
+
+    <ng-template #deleteBlock>
+      <p class="text-center">Are you sure you want to delete <span class="bold">{{data.firstName}} {{data.lastName}}
+        </span>({{data.username}})?</p>
+      <p class="text-center">It won't be recoverable!!</p>
+    </ng-template>
+  </div>
+  <p *ngIf="errorMsg" class="error-txt">{{errorMsg}}</p>
+  <div mat-dialog-actions class="dialog-btns">
+    <button mat-button (click)="closeDialog()" class="cancel-btn">Cancel</button>
+    <button mat-button (click)="save()" cdkFocusInitial class="main-btn">Ok</button>
+  </div>
+</div>
+
+<ng-template #disabledUsername>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.username" placeholder="Username" [value]="data.username" disabled>
+  </mat-form-field>
+</ng-template>
